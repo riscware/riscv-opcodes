@@ -1,8 +1,8 @@
-lb.aq         rd rs1        26=1   rl 31..27=6 24..20=0 14..12=0         6..2=0x0B 1..0=3
-lh.aq         rd rs1        26=1   rl 31..27=6 24..20=0 14..12=1         6..2=0x0B 1..0=3
-lw.aq         rd rs1        26=1   rl 31..27=6 24..20=0 14..12=2         6..2=0x0B 1..0=3
-ld.aq         rd rs1        26=1   rl 31..27=6 24..20=0 14..12=3         6..2=0x0B 1..0=3
-sb.rl            rs1 rs2      aq 25=1 31..27=7          14..12=0 11..7=0 6..2=0x0B 1..0=3
-sh.rl            rs1 rs2      aq 25=1 31..27=7          14..12=1 11..7=0 6..2=0x0B 1..0=3
-sw.rl            rs1 rs2      aq 25=1 31..27=7          14..12=2 11..7=0 6..2=0x0B 1..0=3
-sd.rl            rs1 rs2      aq 25=1 31..27=7          14..12=3 11..7=0 6..2=0x0B 1..0=3
+lb.aq     rd rs1 aq=1 rl funct5=6 rs2=0 funct3=0 opcode=0x2F
+lh.aq     rd rs1 aq=1 rl funct5=6 rs2=0 funct3=1 opcode=0x2F
+lw.aq     rd rs1 aq=1 rl funct5=6 rs2=0 funct3=2 opcode=0x2F
+ld.aq     rd rs1 aq=1 rl funct5=6 rs2=0 funct3=3 opcode=0x2F
+sb.rl     rs1 rs2 aq rl=1 funct5=7 funct3=0 rd=0 opcode=0x2F
+sh.rl     rs1 rs2 aq rl=1 funct5=7 funct3=1 rd=0 opcode=0x2F
+sw.rl     rs1 rs2 aq rl=1 funct5=7 funct3=2 rd=0 opcode=0x2F
+sd.rl     rs1 rs2 aq rl=1 funct5=7 funct3=3 rd=0 opcode=0x2F

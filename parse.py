@@ -24,6 +24,8 @@ logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
 def generate_extensions(
     extensions: list[str],
     include_pseudo: bool,
+    include_fixed_fields: bool,
+    include_orig_instr_field: bool,
     c: bool,
     chisel: bool,
     spinalhdl: bool,
@@ -32,7 +34,7 @@ def generate_extensions(
     go: bool,
     latex: bool,
 ):
-    instr_dict = create_inst_dict(extensions, include_pseudo)
+    instr_dict = create_inst_dict(extensions, include_fixed_fields, include_orig_instr_field, include_pseudo)
     instr_dict = dict(sorted(instr_dict.items()))
 
     with open("instr_dict.json", "w", encoding="utf-8") as outfile:
@@ -40,7 +42,7 @@ def generate_extensions(
 
     if c:
         instr_dict_c = create_inst_dict(
-            extensions, False, include_pseudo_ops=emitted_pseudo_ops
+            extensions, include_fixed_fields, include_orig_instr_field, False, include_pseudo_ops=emitted_pseudo_ops
         )
         instr_dict_c = dict(sorted(instr_dict_c.items()))
         make_c(instr_dict_c)
@@ -78,6 +80,12 @@ def main():
     parser.add_argument(
         "-pseudo", action="store_true", help="Include pseudo-instructions"
     )
+    parser.add_argument(
+        "-fixed_fields", action="store_true", help="Include Fixed Fields in the generated Json File"
+    )
+    parser.add_argument(
+        "-orig_instr", action="store_true", help="Include Original Instruction Name for Pseudo Instructions"
+    )
     parser.add_argument("-c", action="store_true", help="Generate output for C")
     parser.add_argument(
         "-chisel", action="store_true", help="Generate output for Chisel"
@@ -104,6 +112,8 @@ def main():
     generate_extensions(
         args.extensions,
         args.pseudo,
+        args.fixed_fields,
+        args.orig_instr,
         args.c,
         args.chisel,
         args.spinalhdl,
