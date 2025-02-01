@@ -27,6 +27,8 @@ logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
 
 include_fixed_args = False
 
+include_orig_instr = False
+
 # Log an error message
 def log_and_exit(message: str):
     """Log an error message and exit the program."""
@@ -254,7 +256,7 @@ def process_enc_line(line: str, ext: str,
     if (include_fixed_args):
         properties["fixed_fields"] = fixed_args
 
-    if (orig_inst):
+    if (orig_inst and include_orig_instr):
         properties["orig_inst"] = orig_inst
 
     return name, properties
@@ -577,6 +579,7 @@ def validate_instruction_in_extension(
 def create_inst_dict(
     file_filter: "list[str]",
     include_fixed_fields: bool = False,
+    include_orig_instr_field: bool = False,
     include_pseudo: bool = False,
     include_pseudo_ops: "Optional[list[str]]" = None,
 ) -> InstrDict:
@@ -617,6 +620,10 @@ def create_inst_dict(
     global include_fixed_args
 
     include_fixed_args = include_fixed_fields
+
+    global include_orig_instr
+
+    include_orig_instr = include_orig_instr_field
 
     opcodes_dir = os.path.dirname(os.path.realpath(__file__)) + "/extensions"
     instr_dict: InstrDict = {}
