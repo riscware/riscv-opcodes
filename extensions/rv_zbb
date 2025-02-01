@@ -1,15 +1,15 @@
-andn       rd rs1 rs2 31..25=32 14..12=7 6..0=0x33
-orn        rd rs1 rs2 31..25=32 14..12=6 6..0=0x33
-xnor       rd rs1 rs2 31..25=32 14..12=4 6..0=0x33
-clz        rd rs1 31..20=0x600 14..12=1 6..0=0x13
-ctz        rd rs1 31..20=0x601 14..12=1 6..0=0x13
-cpop       rd rs1 31..20=0x602 14..12=1 6..0=0x13
-max        rd rs1 rs2 31..25=5 14..12=6 6..0=0x33
-maxu       rd rs1 rs2 31..25=5 14..12=7 6..0=0x33
-min        rd rs1 rs2 31..25=5 14..12=4 6..0=0x33
-minu       rd rs1 rs2 31..25=5 14..12=5 6..0=0x33
-sext.b     rd rs1 31..20=0x604 14..12=1 6..0=0x13
-sext.h     rd rs1 31..20=0x605 14..12=1 6..0=0x13
-rol        rd rs1 rs2 31..25=0x30 14..12=1 6..0=0x33
-ror        rd rs1 rs2 31..25=0x30 14..12=5 6..0=0x33
-$pseudo_op rv64_zbp::gorci orc.b rd rs1 31..20=0x287 14..12=0x5 6..0=0x13
+andn       rd rs1 rs2 31..25=32 14..12=7 opcode=0x33
+orn        rd rs1 rs2 31..25=32 14..12=6 opcode=0x33
+xnor       rd rs1 rs2 31..25=32 14..12=4 opcode=0x33
+clz        rd rs1 31..20=0x600 14..12=1 opcode=0x13
+ctz        rd rs1 31..20=0x601 14..12=1 opcode=0x13
+cpop       rd rs1 31..20=0x602 14..12=1 opcode=0x13
+max        rd rs1 rs2 31..25=5 14..12=6 opcode=0x33
+maxu       rd rs1 rs2 31..25=5 14..12=7 opcode=0x33
+min        rd rs1 rs2 31..25=5 14..12=4 opcode=0x33
+minu       rd rs1 rs2 31..25=5 14..12=5 opcode=0x33
+sext.b     rd rs1 31..20=0x604 14..12=1 opcode=0x13
+sext.h     rd rs1 31..20=0x605 14..12=1 opcode=0x13
+rol        rd rs1 rs2 31..25=0x30 14..12=1 opcode=0x33
+ror        rd rs1 rs2 31..25=0x30 14..12=5 opcode=0x33
+$pseudo_op rv64_zbp::gorci orc.b rd rs1 31..20=0x287 14..12=0x5 opcode=0x13

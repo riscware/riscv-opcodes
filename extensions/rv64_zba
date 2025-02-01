@@ -1,7 +1,7 @@
-add.uw     rd rs1 rs2 31..25=4  14..12=0 6..0=0x3B
-sh1add.uw  rd rs1 rs2 31..25=16 14..12=2 6..0=0x3B
-sh2add.uw  rd rs1 rs2 31..25=16 14..12=4 6..0=0x3B
-sh3add.uw  rd rs1 rs2 31..25=16 14..12=6 6..0=0x3B
-slli.uw    rd rs1 31..26=2 shamtd 14..12=1 6..0=0x1B
+add.uw     rd rs1 rs2 31..25=4  14..12=0 opcode=0x3B
+sh1add.uw  rd rs1 rs2 31..25=16 14..12=2 opcode=0x3B
+sh2add.uw  rd rs1 rs2 31..25=16 14..12=4 opcode=0x3B
+sh3add.uw  rd rs1 rs2 31..25=16 14..12=6 opcode=0x3B
+slli.uw    rd rs1 31..26=2 shamtd 14..12=1 opcode=0x1B
 
-$pseudo_op rv64_zba::add.uw zext.w rd rs1 31..25=4 24..20=0 14..12=0 6..0=0x3B
+$pseudo_op rv64_zba::add.uw zext.w rd rs1 31..25=4 24..20=0 14..12=0 opcode=0x3B

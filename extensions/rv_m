@@ -1,8 +1,8 @@
-mul     rd rs1 rs2 31..25=1 14..12=0 6..0=0x33
-mulh    rd rs1 rs2 31..25=1 14..12=1 6..0=0x33
-mulhsu  rd rs1 rs2 31..25=1 14..12=2 6..0=0x33
-mulhu   rd rs1 rs2 31..25=1 14..12=3 6..0=0x33
-div     rd rs1 rs2 31..25=1 14..12=4 6..0=0x33
-divu    rd rs1 rs2 31..25=1 14..12=5 6..0=0x33
-rem     rd rs1 rs2 31..25=1 14..12=6 6..0=0x33
-remu    rd rs1 rs2 31..25=1 14..12=7 6..0=0x33
+mul     rd rs1 rs2 funct7=1 funct3=0 opcode=0x33
+mulh    rd rs1 rs2 funct7=1 funct3=1 opcode=0x33
+mulhsu  rd rs1 rs2 funct7=1 funct3=2 opcode=0x33
+mulhu   rd rs1 rs2 funct7=1 funct3=3 opcode=0x33
+div     rd rs1 rs2 funct7=1 funct3=4 opcode=0x33
+divu    rd rs1 rs2 funct7=1 funct3=5 opcode=0x33
+rem     rd rs1 rs2 funct7=1 funct3=6 opcode=0x33
+remu    rd rs1 rs2 funct7=1 funct3=7 opcode=0x33

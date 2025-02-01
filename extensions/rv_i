@@ -1,76 +1,76 @@
 # rv_i
 
-lui     rd imm20 6..0=0x37
-auipc   rd imm20 6..0=0x17
-jal     rd jimm20                          6..0=0x6F
-jalr    rd rs1 imm12              14..12=0 6..0=0x67
-beq     bimm12hi rs1 rs2 bimm12lo 14..12=0 6..0=0x63
-bne     bimm12hi rs1 rs2 bimm12lo 14..12=1 6..0=0x63
-blt     bimm12hi rs1 rs2 bimm12lo 14..12=4 6..0=0x63
-bge     bimm12hi rs1 rs2 bimm12lo 14..12=5 6..0=0x63
-bltu    bimm12hi rs1 rs2 bimm12lo 14..12=6 6..0=0x63
-bgeu    bimm12hi rs1 rs2 bimm12lo 14..12=7 6..0=0x63
-lb      rd rs1       imm12 14..12=0 6..0=0x03
-lh      rd rs1       imm12 14..12=1 6..0=0x03
-lw      rd rs1       imm12 14..12=2 6..0=0x03
-lbu     rd rs1       imm12 14..12=4 6..0=0x03
-lhu     rd rs1       imm12 14..12=5 6..0=0x03
-sb     imm12hi rs1 rs2 imm12lo 14..12=0 6..0=0x23
-sh     imm12hi rs1 rs2 imm12lo 14..12=1 6..0=0x23
-sw     imm12hi rs1 rs2 imm12lo 14..12=2 6..0=0x23
-addi    rd rs1 imm12           14..12=0 6..0=0x13
-slti    rd rs1 imm12           14..12=2 6..0=0x13
-sltiu   rd rs1 imm12           14..12=3 6..0=0x13
-xori    rd rs1 imm12           14..12=4 6..0=0x13
-ori     rd rs1 imm12           14..12=6 6..0=0x13
-andi    rd rs1 imm12           14..12=7 6..0=0x13
-add     rd rs1 rs2 31..25=0  14..12=0 6..0=0x33
-sub     rd rs1 rs2 31..25=32 14..12=0 6..0=0x33
-sll     rd rs1 rs2 31..25=0  14..12=1 6..0=0x33
-slt     rd rs1 rs2 31..25=0  14..12=2 6..0=0x33
-sltu    rd rs1 rs2 31..25=0  14..12=3 6..0=0x33
-xor     rd rs1 rs2 31..25=0  14..12=4 6..0=0x33
-srl     rd rs1 rs2 31..25=0  14..12=5 6..0=0x33
-sra     rd rs1 rs2 31..25=32 14..12=5 6..0=0x33
-or      rd rs1 rs2 31..25=0  14..12=6 6..0=0x33
-and     rd rs1 rs2 31..25=0  14..12=7 6..0=0x33
-fence fm pred succ rs1 14..12=0 rd 6..0=0x0F
+lui     rd imm20 opcode=0x37
+auipc   rd imm20 opcode=0x17
+jal     rd jimm20                          opcode=0x6F
+jalr    rd rs1 imm12              funct3=0 opcode=0x67
+beq     bimm12hi rs1 rs2 bimm12lo funct3=0 opcode=0x63
+bne     bimm12hi rs1 rs2 bimm12lo funct3=1 opcode=0x63
+blt     bimm12hi rs1 rs2 bimm12lo funct3=4 opcode=0x63
+bge     bimm12hi rs1 rs2 bimm12lo funct3=5 opcode=0x63
+bltu    bimm12hi rs1 rs2 bimm12lo funct3=6 opcode=0x63
+bgeu    bimm12hi rs1 rs2 bimm12lo funct3=7 opcode=0x63
+lb      rd rs1       imm12 funct3=0 opcode=0x03
+lh      rd rs1       imm12 funct3=1 opcode=0x03
+lw      rd rs1       imm12 funct3=2 opcode=0x03
+lbu     rd rs1       imm12 funct3=4 opcode=0x03
+lhu     rd rs1       imm12 funct3=5 opcode=0x03
+sb     imm12hi rs1 rs2 imm12lo funct3=0 opcode=0x23
+sh     imm12hi rs1 rs2 imm12lo funct3=1 opcode=0x23
+sw     imm12hi rs1 rs2 imm12lo funct3=2 opcode=0x23
+addi    rd rs1 imm12           funct3=0 opcode=0x13
+slti    rd rs1 imm12           funct3=2 opcode=0x13
+sltiu   rd rs1 imm12           funct3=3 opcode=0x13
+xori    rd rs1 imm12           funct3=4 opcode=0x13
+ori     rd rs1 imm12           funct3=6 opcode=0x13
+andi    rd rs1 imm12           funct3=7 opcode=0x13
+add     rd rs1 rs2 funct7=0  funct3=0 opcode=0x33
+sub     rd rs1 rs2 funct7=32 funct3=0 opcode=0x33
+sll     rd rs1 rs2 funct7=0  funct3=1 opcode=0x33
+slt     rd rs1 rs2 funct7=0  funct3=2 opcode=0x33
+sltu    rd rs1 rs2 funct7=0  funct3=3 opcode=0x33
+xor     rd rs1 rs2 funct7=0  funct3=4 opcode=0x33
+srl     rd rs1 rs2 funct7=0  funct3=5 opcode=0x33
+sra     rd rs1 rs2 funct7=32 funct3=5 opcode=0x33
+or      rd rs1 rs2 funct7=0  funct3=6 opcode=0x33
+and     rd rs1 rs2 funct7=0  funct3=7 opcode=0x33
+fence fm pred succ rs1 funct3=0 rd opcode=0x0F
 #specialized fences
-$pseudo_op rv_i::fence fence.tso 31..28=8 27..24=3 23..20=3 rs1 14..12=0 rd 6..0=0x0F
-$pseudo_op rv_i::fence pause     31..28=0 27..24=1 23..20=0 19..15=0      14..12=0 11..7=0      6..0=0x0F
-ecall    31..20=0x000 19..7=0 6..0=0x73
-ebreak   31..20=0x001 19..7=0 6..0=0x73
+$pseudo_op rv_i::fence fence.tso fm=8 pred=3 succ=3 rs1 funct3=0 rd opcode=0x0F
+$pseudo_op rv_i::fence pause     fm=0 pred=1 succ=0 rs1=0      funct3=0 rd=0      opcode=0x0F
+ecall    funct12=0x000 rs1=0 funct3=0 rd=0 opcode=0x73
+ebreak   funct12=0x001 rs1=0 funct3=0 rd=0 opcode=0x73
 
 #Old names for ecall/ebreak
-$pseudo_op rv_i::ecall scall     11..7=0 19..15=0 31..20=0x000 14..12=0 6..0=0x73
-$pseudo_op rv_i::ebreak sbreak    11..7=0 19..15=0 31..20=0x001 14..12=0 6..0=0x73
+$pseudo_op rv_i::ecall scall funct12=0x000 rs1=0 funct3=0 rd=0 opcode=0x73
+$pseudo_op rv_i::ebreak sbreak funct12=0x001 rs1=0 funct3=0 rd=0 opcode=0x73
 
 
 #pseudoinstructions from asm manual
-$pseudo_op rv_i::addi   mv rd rs1 31..20=0 14..12=0 6..0=0x13
-$pseudo_op rv_i::sub    neg rd rs1 31..25=32 24..20=0x0 14..12=0 6..0=0x33
-$pseudo_op rv_i::addi   nop 31..20=0 19..15=0 14..12=0 11..7=0 6..0=0x13
-$pseudo_op rv_i::andi   zext.b rd rs1 31..20=0 14..12=7 6..0=0x13
+$pseudo_op rv_i::addi   mv rd rs1 imm12=0 funct3=0 opcode=0x13
+$pseudo_op rv_i::sub    neg rd rs1 funct7=32 rs2=0x0 funct3=0 opcode=0x33
+$pseudo_op rv_i::addi   nop imm12=0 rs1=0 funct3=0 rd=0 opcode=0x13
+$pseudo_op rv_i::andi   zext.b rd rs1 imm12=0 funct3=7 opcode=0x13
 
-$pseudo_op rv_i::jalr ret 31..20=0 19..15=0x01 14..12=0 11..7=0 6..0=0x67
+$pseudo_op rv_i::jalr ret imm12=0 rs1=0x01 funct3=0 rd=0 opcode=0x67
 
-$pseudo_op rv_i::bgeu   bleu bimm12hi rs2 rs1 bimm12lo 14..12=7 6..0=0x63
-$pseudo_op rv_i::bltu   bgtu bimm12hi rs2 rs1 bimm12lo 14..12=6 6..0=0x63
-$pseudo_op rv_i::bge    ble  bimm12hi rs2 rs1 bimm12lo 14..12=5 6..0=0x63
-$pseudo_op rv_i::bge    bgez bimm12hi rs1     bimm12lo 24..20=0x0 14..12=5 6..0=0x63
-$pseudo_op rv_i::bge    blez bimm12hi rs2     bimm12lo 19..15=0x0 14..12=5 6..0=0x63
-$pseudo_op rv_i::blt    bgt  bimm12hi rs2 rs1 bimm12lo 14..12=4 6..0=0x63
-$pseudo_op rv_i::blt    bgtz bimm12hi rs2     bimm12lo 19..15=0x0 14..12=4 6..0=0x63
-$pseudo_op rv_i::blt    bltz bimm12hi rs1     bimm12lo 24..20=0x0 14..12=4 6..0=0x63
-$pseudo_op rv_i::bne    bnez bimm12hi rs1     bimm12lo 24..20=0x0 14..12=1 6..0=0x63
-$pseudo_op rv_i::beq    beqz bimm12hi rs1     bimm12lo 24..20=0x0 14..12=0 6..0=0x63
+$pseudo_op rv_i::bgeu   bleu bimm12hi rs2 rs1 bimm12lo funct3=7 opcode=0x63
+$pseudo_op rv_i::bltu   bgtu bimm12hi rs2 rs1 bimm12lo funct3=6 opcode=0x63
+$pseudo_op rv_i::bge    ble  bimm12hi rs2 rs1 bimm12lo funct3=5 opcode=0x63
+$pseudo_op rv_i::bge    bgez bimm12hi rs1     bimm12lo rs2=0x0 funct3=5 opcode=0x63
+$pseudo_op rv_i::bge    blez bimm12hi rs2     bimm12lo rs1=0x0 funct3=5 opcode=0x63
+$pseudo_op rv_i::blt    bgt  bimm12hi rs2 rs1 bimm12lo funct3=4 opcode=0x63
+$pseudo_op rv_i::blt    bgtz bimm12hi rs2     bimm12lo rs1=0x0 funct3=4 opcode=0x63
+$pseudo_op rv_i::blt    bltz bimm12hi rs1     bimm12lo rs2=0x0 funct3=4 opcode=0x63
+$pseudo_op rv_i::bne    bnez bimm12hi rs1     bimm12lo rs2=0x0 funct3=1 opcode=0x63
+$pseudo_op rv_i::beq    beqz bimm12hi rs1     bimm12lo rs2=0x0 funct3=0 opcode=0x63
 
-$pseudo_op rv_i::sltiu  seqz rd rs1 31..20=1 14..12=3 6..0=0x13
-$pseudo_op rv_i::sltu   snez rd rs2 31..25=0 19..15=0x0 14..12=3 6..0=0x33
-$pseudo_op rv_i::slt    sltz rd rs1 31..25=0 24..20=0x0 14..12=2 6..0=0x33
-$pseudo_op rv_i::slt    sgtz rd rs2 31..25=0 19..15=0x0 14..12=2 6..0=0x33
+$pseudo_op rv_i::sltiu  seqz rd rs1 imm12=1 funct3=3 opcode=0x13
+$pseudo_op rv_i::sltu   snez rd rs2 funct7=0 rs1=0x0 funct3=3 opcode=0x33
+$pseudo_op rv_i::slt    sltz rd rs1 funct7=0 rs2=0x0 funct3=2 opcode=0x33
+$pseudo_op rv_i::slt    sgtz rd rs2 funct7=0 rs1=0x0 funct3=2 opcode=0x33
 
-$pseudo_op rv_i::jalr   jalr rs1    31..20=0 14..12=0 11..7=0x01 6..0=0x67
-$pseudo_op rv_i::jalr   jr   rs1    31..20=0 14..12=0 11..7=0x0  6..0=0x67
-$pseudo_op rv_i::jal    jal  jimm20                   11..7=0x01 6..0=0x6F
-$pseudo_op rv_i::jal    j    jimm20                   11..7=0x0  6..0=0x6F
+$pseudo_op rv_i::jalr   jalr rs1    imm12=0 funct3=0 rd=0x01 opcode=0x67
+$pseudo_op rv_i::jalr   jr   rs1    imm12=0 funct3=0 rd=0x0  opcode=0x67
+$pseudo_op rv_i::jal    jal  jimm20                   rd=0x01 opcode=0x6F
+$pseudo_op rv_i::jal    j    jimm20                   rd=0x0  opcode=0x6F

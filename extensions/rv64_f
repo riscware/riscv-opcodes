@@ -1,6 +1,6 @@
 # RV64F additions to RV32F
 
-fcvt.l.s  rd rs1 24..20=2 31..27=0x18 rm       26..25=0 6..0=0x53
-fcvt.lu.s rd rs1 24..20=3 31..27=0x18 rm       26..25=0 6..0=0x53
-fcvt.s.l  rd rs1 24..20=2 31..27=0x1A rm       26..25=0 6..0=0x53
-fcvt.s.lu rd rs1 24..20=3 31..27=0x1A rm       26..25=0 6..0=0x53
+fcvt.l.s  rd rs1 24..20=2 31..27=0x18 rm       26..25=0 opcode=0x53
+fcvt.lu.s rd rs1 24..20=3 31..27=0x18 rm       26..25=0 opcode=0x53
+fcvt.s.l  rd rs1 24..20=2 31..27=0x1A rm       26..25=0 opcode=0x53
+fcvt.s.lu rd rs1 24..20=3 31..27=0x1A rm       26..25=0 opcode=0x53

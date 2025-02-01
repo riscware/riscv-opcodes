@@ -1,1 +1,1 @@
-fence.i     imm12                       rs1 14..12=1 rd 6..0=0x0F
+fence.i     imm12                       rs1 14..12=1 rd opcode=0x0F

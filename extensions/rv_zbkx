@@ -1,2 +1,2 @@
-xperm4     rd rs1 rs2 31..25=20 14..12=2 6..0=0x33
-xperm8     rd rs1 rs2 31..25=20 14..12=4 6..0=0x33
+xperm4     rd rs1 rs2 31..25=20 14..12=2 opcode=0x33
+xperm8     rd rs1 rs2 31..25=20 14..12=4 opcode=0x33
